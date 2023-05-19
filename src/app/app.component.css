@@ -1,0 +1,8 @@
+ul {
+    text-align: center;
+  }
+
+.scanner-container {
+    width: 300px; /* Ajusta el ancho según tus necesidades */
+    height: 200px; /* Ajusta la altura según tus necesidades */
+  }

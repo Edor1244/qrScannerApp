@@ -73,19 +73,13 @@ export class AppComponent implements OnInit{
     this.availableDevices = cams;
     console.log("Devices", cams);
     if(cams && cams.length > 0){
+      console.log("no hay camaras");
       this.selectedDevice = cams[0];
     }
   }
 
   onDeviceSelectedChange(selectedValue: string){
-    console.log("Selected: ", selectedValue);
-    this.selectedDevice = this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
-      for(const device of devices){
-    console.log("Selected: ", selectedValue);
-        if(device.deviceId === selectedValue){
-          console.log(this.selectedDevice);
-        };
-      };
-    });
+    this.selectedDevice = this.availableDevices.find(device => device.deviceId === selectedValue);
+    this.scanner.device = this.selectedDevice
   };
 }
